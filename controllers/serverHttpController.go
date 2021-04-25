@@ -5,6 +5,7 @@ import (
     "github.com/gravitl/netmaker/serverctl"
     "github.com/gravitl/netmaker/config"
     "encoding/json"
+    "os"
     "strings"
     "net/http"
     "github.com/gorilla/mux"
@@ -49,8 +50,8 @@ func securityCheckServer(next http.Handler) http.HandlerFunc {
 }
 //Consider a more secure way of setting master key
 func authenticateMasterServer(tokenString string) bool {
-    if tokenString == config.Config.Server.MasterKey {
-        return true
+    if tokenString == config.Config.Server.MasterKey  || (tokenString == os.Getenv("MASTER_KEY") && tokenString != "") {
+	    return true
     }
     return false
 }

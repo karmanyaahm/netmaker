@@ -132,7 +132,7 @@ func NetworkExists(name string) (bool, error) {
 		if err == mongo.ErrNoDocuments {
 			return false, nil
 		}
-		fmt.Println("ERROR RETRIEVING GROUP!")
+		fmt.Println("ERROR RETRIEVING NETWORK!")
 		fmt.Println(err)
 	}
 	return true, err

@@ -23,8 +23,8 @@ var opts string
 func setVars() {
 
 	//defaults
-	user = "admin"
-	pass = "password"
+	user = "mongoadmin"
+	pass = "mongopass"
 	host = "localhost"
 	port = "27017"
 	opts = "/?authSource=admin"
